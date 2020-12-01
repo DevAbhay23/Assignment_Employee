@@ -1,0 +1,44 @@
+<h2>Welcome to Employee Report</h2>
+<table class="employee-table-grid">
+  <thead>
+    <tr>
+      <th> <span class="icon-heading"></span></th>
+      <th class="header-title"> <span class="span-main">Name</span></th>
+      <th class="header-title"> <span class="span-main">Title</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-template #recursiveTableOne let-orgEmployeesList let-pIndex="parentIndex">
+      <ng-container *ngFor="let currentItem of orgEmployeesList; let counter = index">
+        <tr>
+
+          <td class="icon-col" [style.padding-left]="(pIndex+1)*20+'px'">
+            <span class="icon" (click)="collapseClick($event, currentItem)">
+              <strong>{{getIconText(currentItem)}}</strong>
+            </span>
+          </td>
+
+          <td class="name-col" [style.padding-left]="(pIndex+1)*20+'px'">
+            <span>{{currentItem?.name}}</span>
+          </td>
+          <td class="name-col pl-10 text-center">
+            <span>{{currentItem?.title}}</span>
+          </td>
+
+        </tr>
+
+        <ng-container *ngIf="currentItem?.sub?.length > 0 && currentItem.showSub">
+          <ng-container
+            *ngTemplateOutlet="recursiveTableOne; context:{ $implicit: currentItem?.sub,parentIndex:pIndex+1}">
+          </ng-container>
+        </ng-container>
+
+      </ng-container>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="recursiveTableOne; context:{ $implicit: orgEmployeesList,parentIndex:0 }">
+    </ng-container>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>

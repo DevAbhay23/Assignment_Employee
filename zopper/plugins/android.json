@@ -1,0 +1,25 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.assignment.employee"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.assignment.employee"
+    },
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.+",
+      "PACKAGE_NAME": "com.assignment.employee"
+    },
+    "cordova-plugin-enable-multidex": {
+      "PACKAGE_NAME": "com.assignment.employee"
+    }
+  },
+  "dependent_plugins": {}
+}
