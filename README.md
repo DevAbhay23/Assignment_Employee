@@ -15,5 +15,5 @@ Steps to run :
   <li>Run cordova build android</li>
 </ol>
 
-For Web
+
 
